@@ -22,6 +22,7 @@ Reservations component for a vacation rental marketplace site
 1. [Usage](#usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
+1. [API Documentation](#api-documentation)
 
 ## Usage
 
@@ -51,7 +52,7 @@ npm run build
 # Stay.io - Backend
 #### Backend Developer: Victor Wong
 
-## CRUD Operations
+## API Documentation
 
 ### Create - Making a reservation
   * POST `/listings/:listingId/reservation/`
