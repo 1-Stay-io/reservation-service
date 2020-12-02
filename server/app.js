@@ -17,6 +17,7 @@ app.get('/api/listings/', (req, res) => {
       res.send(JSON.stringify(listings, 0, 2));
     });
 });
+
 app.get('/api/listings/:id', (req, res) => {
   Helpers.listingModel.find({ id: req.params.id })
     .then((listings) => {

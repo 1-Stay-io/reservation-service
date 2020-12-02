@@ -1,4 +1,5 @@
-# Ailpup
+# Ailpup - Frontend
+#### Frontend Developer: Chris Diep
 
 Reservations component for a vacation rental marketplace site
 <div align="center">
@@ -18,7 +19,7 @@ Reservations component for a vacation rental marketplace site
 
 ## Table of Contents
 
-1. [Usage](#Usage)
+1. [Usage](#usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
 
@@ -45,3 +46,78 @@ npm install
 npm run seed
 npm run server
 npm run build
+```
+
+# Stay.io - Backend
+#### Backend Developer: Victor Wong
+
+## CRUD Operations
+
+### Create - Making a reservation
+  * POST `/listings/:listingId/reservation/`
+
+**Success Status Code:** `201`
+
+**Request Body:** Expects JSON with the following keys.
+
+```json
+    {
+      "listingId": "Number",
+      "userId": "Number",
+      "checkInDate": "String",
+      "checkOutDate": "String",
+      "guests": "Number",
+      "cost": "Number",
+    }
+```
+
+### Read - Get reservation details for listing
+  * GET `/listings/:listingId/reservations/`
+
+**Path Parameters:**
+  * `listingId` listing id
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+    [ {
+      "id": "Number",
+      "listingId": "Number",
+      "userId": "Number",
+      "checkInDate": "String",
+      "checkOutDate": "String",
+      "guests": "Number",
+      "cost": "Number",
+    }, ... ]
+```
+
+### Update - Update a reservation
+  * PATCH `/reservation/:id`
+
+**Path Parameters:**
+  * `id` reservation id
+
+**Success Status Code:** `204`
+
+**Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
+
+```json
+    {
+      "listingId": "Number",
+      "userId": "Number",
+      "checkInDate": "String",
+      "checkOutDate": "String",
+      "guests": "Number",
+      "cost": "Number",
+    }
+```
+
+### Delete - Delete a reservation
+  * DELETE `/reservation/:id`
+
+**Path Parameters:**
+  * `id` reservation id
+
+**Success Status Code:** `204`
