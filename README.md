@@ -56,6 +56,7 @@ npm run build
 
 ### Create:
 #### Making a reservation
+------
   * POST `/listings/:listingId/reservation/`
 
 **Success Status Code:** `201`
@@ -78,6 +79,7 @@ npm run build
 ```
 
 #### Creating a new listing
+------
   * POST `/listings/`
 
 **Success Status Code:** `201`
@@ -100,6 +102,7 @@ npm run build
 
 ### Read:
 #### Get reservation details for listing
+------
   * GET `/listings/:listingId/reservations/`
 
 **Path Parameters:**
@@ -126,6 +129,7 @@ npm run build
 ```
 
 #### Get inforation details for listing
+------
   * GET `/listings/:listingId/`
 
 **Path Parameters:**
@@ -153,6 +157,7 @@ npm run build
 ### Update:
 
 #### Update a listing
+------
   * PATCH `/listings/:listingId/`
 
 **Path Parameters:**
@@ -180,6 +185,7 @@ npm run build
 ### Delete:
 
 #### Delete a reservation
+------
   * DELETE `/reservation/:id`
 
 **Path Parameters:**
@@ -188,6 +194,7 @@ npm run build
 **Success Status Code:** `204`
 
 #### Delete a listing
+------
   * DELETE `/listing/:listingId`
 
 **Path Parameters:**
