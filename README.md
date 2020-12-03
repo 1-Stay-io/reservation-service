@@ -65,9 +65,13 @@ npm run build
     {
       "listingId": "Number",
       "userId": "Number",
-      "checkInDate": "String",
-      "checkOutDate": "String",
-      "guests": "Number",
+      "checkInDate": "Date",
+      "checkOutDate": "Date",
+      "guests": {
+        "adults": "Number",
+        "children": "Number",
+        "infants": "Number",
+      },
       "cost": "Number",
     }
 ```
@@ -87,9 +91,13 @@ npm run build
       "id": "Number",
       "listingId": "Number",
       "userId": "Number",
-      "checkInDate": "String",
-      "checkOutDate": "String",
-      "guests": "Number",
+      "checkInDate": "Date",
+      "checkOutDate": "Date",
+      "guests": {
+        "adults": "Number",
+        "children": "Number",
+        "infants": "Number",
+      },
       "cost": "Number",
     }, ... ]
 ```
@@ -108,9 +116,13 @@ npm run build
     {
       "listingId": "Number",
       "userId": "Number",
-      "checkInDate": "String",
-      "checkOutDate": "String",
-      "guests": "Number",
+      "checkInDate": "Date",
+      "checkOutDate": "Date",
+      "guests": {
+        "adults": "Number",
+        "children": "Number",
+        "infants": "Number",
+      },
       "cost": "Number",
     }
 ```
