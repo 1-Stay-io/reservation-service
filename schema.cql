@@ -34,11 +34,13 @@ CREATE TABLE bookings.reservations_by_listing (
   PRIMARY KEY (listing_id) )
 WITH comment = 'Q2. Find all reservations by listing id';
 
--- CREATE TABLE bookings.reservations (
---   listing_id uuid PRIMARY KEY,
---   user uuid,
---   checkInDate date,
---   checkOutDate date,
---   guests frozen<guests>,
---   cost int )
--- WITH comment = 'Q2. Find reservation by listing id';
+CREATE TABLE bookings.reservations (
+  reservation_id uuid,
+  listing_id uuid,
+  user uuid,
+  checkInDate date,
+  checkOutDate date,
+  guests frozen<guests>,
+  cost int
+  PRIMARY KEY (reservation_id) )
+WITH comment = 'Q3. Find reservation by reservation id';

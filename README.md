@@ -193,7 +193,7 @@ npm run build
 
 **Success Status Code:** `204`
 
-#### Delete a listing
+#### _Delete a listing_
 ------
   * DELETE `/listing/:listingId`
 
