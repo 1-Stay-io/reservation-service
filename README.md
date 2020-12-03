@@ -54,7 +54,8 @@ npm run build
 
 ## API Documentation
 
-### Create - Making a reservation
+### Create:
+#### Making a reservation
   * POST `/listings/:listingId/reservation/`
 
 **Success Status Code:** `201`
@@ -76,7 +77,29 @@ npm run build
     }
 ```
 
-### Read - Get reservation details for listing
+#### Creating a new listing
+  * POST `/listings/`
+
+**Success Status Code:** `201`
+
+**Request Body:** Expects JSON with the following keys.
+
+```json
+    {
+      "userId": "Number",
+      "name": "String",
+      "maxGuests": "Number",
+      "maxStay": "Number",
+      "fees": {
+        "perNight": "Number",
+        "cleaning": "Number",
+        "service": "Number",
+      },
+    }
+```
+
+### Read:
+#### Get reservation details for listing
   * GET `/listings/:listingId/reservations/`
 
 **Path Parameters:**
@@ -102,35 +125,72 @@ npm run build
     }, ... ]
 ```
 
-### Update - Update a reservation
-  * PATCH `/reservation/:id`
+#### Get inforation details for listing
+  * GET `/listings/:listingId/`
 
 **Path Parameters:**
-  * `id` reservation id
+  * `listingId` listing id
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+  {
+    "listingId": "Number",
+    "userId": "Number",
+    "name": "String",
+    "maxGuests": "Number",
+    "maxStay": "Number",
+    "fees": {
+      "perNight": "Number",
+      "cleaning": "Number",
+      "service": "Number",
+    },
+  }
+```
+
+### Update:
+
+#### Update a listing
+  * PATCH `/listings/:listingId/`
+
+**Path Parameters:**
+  * `listingId` listing id
 
 **Success Status Code:** `204`
 
 **Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
 
 ```json
-    {
-      "listingId": "Number",
-      "userId": "Number",
-      "checkInDate": "Date",
-      "checkOutDate": "Date",
-      "guests": {
-        "adults": "Number",
-        "children": "Number",
-        "infants": "Number",
-      },
-      "cost": "Number",
-    }
+  {
+    "listingId": "Number",
+    "userId": "Number",
+    "name": "String",
+    "maxGuests": "Number",
+    "maxStay": "Number",
+    "fees": {
+      "perNight": "Number",
+      "cleaning": "Number",
+      "service": "Number",
+    },
+  }
 ```
 
-### Delete - Delete a reservation
+### Delete:
+
+#### Delete a reservation
   * DELETE `/reservation/:id`
 
 **Path Parameters:**
   * `id` reservation id
+
+**Success Status Code:** `204`
+
+#### Delete a listing
+  * DELETE `/listing/:listingId`
+
+**Path Parameters:**
+  * `listingId` listing id
 
 **Success Status Code:** `204`

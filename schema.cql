@@ -1,5 +1,5 @@
 CREATE KEYSPACE bookings WITH replication =
-{'class': 'SimpleStrategy', 'replication_factor': 3};
+{'class': 'SimpleStrategy', 'replication_factor': 1};
 
 CREATE TYPE bookings.fees (
   perNight int,
@@ -12,28 +12,33 @@ CREATE TYPE bookings.guests (
   infants int );
 
 CREATE TABLE bookings.listings (
-  listing_id uuid PRIMARY KEY,
+  listing_id uuid,
   owner text,
+  owner_id uuid,
   name text,
-  fees frozen<fees> )
+  maxGuests int,
+  maxStay int,
+  fees frozen<fees>,
+  PRIMARY KEY (listing_id) )
 WITH comment = 'Q1. Find information about a listing';
 
-CREATE TABLE bookings.reservations (
-  reservation_id uuid PRIMARY KEY,
-  listing_id uuid,
-  user uuid,
-  checkInDate date,
-  checkOutDate date,
-  guests frozen<guests>,
-  cost int )
-WITH comment = 'Q2. Find reservation by reservation id';
-
 CREATE TABLE bookings.reservations_by_listing (
-  listing_id uuid PRIMARY KEY,
+  listing_id uuid,
   reservation_id uuid,
-  user uuid,
+  user text,
+  user_id uuid,
   checkInDate date,
   checkOutDate date,
   guests frozen<guests>,
-  cost int )
-WITH comment = 'Q3. Find all reservations by listing id';
+  cost int
+  PRIMARY KEY (listing_id) )
+WITH comment = 'Q2. Find all reservations by listing id';
+
+-- CREATE TABLE bookings.reservations (
+--   listing_id uuid PRIMARY KEY,
+--   user uuid,
+--   checkInDate date,
+--   checkOutDate date,
+--   guests frozen<guests>,
+--   cost int )
+-- WITH comment = 'Q2. Find reservation by listing id';
