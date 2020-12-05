@@ -1,4 +1,5 @@
-# Ailpup
+# Ailpup - Frontend
+#### Frontend Developer: Chris Diep
 
 Reservations component for a vacation rental marketplace site
 <div align="center">
@@ -18,9 +19,10 @@ Reservations component for a vacation rental marketplace site
 
 ## Table of Contents
 
-1. [Usage](#Usage)
+1. [Usage](#usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
+1. [API Documentation](#api-documentation)
 
 ## Usage
 
@@ -45,3 +47,157 @@ npm install
 npm run seed
 npm run server
 npm run build
+```
+
+# Stay.io - Backend
+#### Backend Developer: Victor Wong
+
+## API Documentation
+
+### Create:
+#### Making a reservation
+------
+  * POST `/listings/:listingId/reservation/`
+
+**Success Status Code:** `201`
+
+**Request Body:** Expects JSON with the following keys.
+
+```json
+    {
+      "listingId": "Number",
+      "userId": "Number",
+      "checkInDate": "Date",
+      "checkOutDate": "Date",
+      "guests": {
+        "adults": "Number",
+        "children": "Number",
+        "infants": "Number",
+      },
+      "cost": "Number",
+    }
+```
+
+#### Creating a new listing
+------
+  * POST `/listings/`
+
+**Success Status Code:** `201`
+
+**Request Body:** Expects JSON with the following keys.
+
+```json
+    {
+      "userId": "Number",
+      "name": "String",
+      "maxGuests": "Number",
+      "maxStay": "Number",
+      "fees": {
+        "perNight": "Number",
+        "cleaning": "Number",
+        "service": "Number",
+      },
+    }
+```
+
+### Read:
+#### Get reservation details for listing
+------
+  * GET `/listings/:listingId/reservations/`
+
+**Path Parameters:**
+  * `listingId` listing id
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+    [ {
+      "id": "Number",
+      "listingId": "Number",
+      "userId": "Number",
+      "checkInDate": "Date",
+      "checkOutDate": "Date",
+      "guests": {
+        "adults": "Number",
+        "children": "Number",
+        "infants": "Number",
+      },
+      "cost": "Number",
+    }, ... ]
+```
+
+#### Get inforation details for listing
+------
+  * GET `/listings/:listingId/`
+
+**Path Parameters:**
+  * `listingId` listing id
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+  {
+    "listingId": "Number",
+    "userId": "Number",
+    "name": "String",
+    "maxGuests": "Number",
+    "maxStay": "Number",
+    "fees": {
+      "perNight": "Number",
+      "cleaning": "Number",
+      "service": "Number",
+    },
+  }
+```
+
+### Update:
+
+#### Update a listing
+------
+  * PATCH `/listings/:listingId/`
+
+**Path Parameters:**
+  * `listingId` listing id
+
+**Success Status Code:** `204`
+
+**Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
+
+```json
+  {
+    "listingId": "Number",
+    "userId": "Number",
+    "name": "String",
+    "maxGuests": "Number",
+    "maxStay": "Number",
+    "fees": {
+      "perNight": "Number",
+      "cleaning": "Number",
+      "service": "Number",
+    },
+  }
+```
+
+### Delete:
+
+#### Delete a reservation
+------
+  * DELETE `/reservation/:id`
+
+**Path Parameters:**
+  * `id` reservation id
+
+**Success Status Code:** `204`
+
+#### _Delete a listing_
+------
+  * DELETE `/listing/:listingId`
+
+**Path Parameters:**
+  * `listingId` listing id
+
+**Success Status Code:** `204`
