@@ -13,7 +13,9 @@
     "build": "webpack --watch --config webpack.config.js",
     "testBackend": "jest --config ./tests/backend/jestBackend.config.js",
     "testFrontend": "jest --config ./tests/frontend/jestFrontend.config.js",
-    "tests": "jest"
+    "tests": "jest",
+    "csvPostgres": "node ./dbPostgres/csvGenerator.js",
+    "seedPostgres": "node ./dbPostgres/seed.js"
   },
   "dependencies": {
     "axios": "^0.21.0",
