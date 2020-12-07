@@ -9,3 +9,4 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use('/listings/:id', express.static(path.join(__dirname, '..', 'client', 'dist')));
 
+app.get();
