@@ -14,7 +14,7 @@ listingsWriter.write('id,name,maxStay,maxGuests,feePerNight,feeCleaning,feeServi
 const reservationsWriter = fs.createWriteStream('./dbPostgres/csv/reservations.csv');
 reservationsWriter.write('checkInDate,checkOutDate,adults,children,infants,totalCost,listing_id,user_id\n');
 
-const random = (num, skew =  1) => (
+const random = (num, skew = 1) => (
   Math.floor(Math.random() ** skew * num)
 );
 
@@ -84,7 +84,7 @@ const dataGenReservations = (reviewAmount, startDate, listingInfo) => {
 };
 
 const dataGenListings = (i, writer, callback) => {
-  let reservationId = 0;
+  // let reservationId = 0;
   let reviewAmount;
   let listingInfo;
   const startDate = new Date();
@@ -117,7 +117,7 @@ const dataGenListings = (i, writer, callback) => {
         writer.write(data);
         reviewAmount = random(21);
         ok = reservationsWriter.write(dataGenReservations(reviewAmount, startDate, listingInfo));
-        reservationId += reviewAmount;
+        // reservationId += reviewAmount;
       }
     } while (i > 0 && ok);
     if (i > 0) {

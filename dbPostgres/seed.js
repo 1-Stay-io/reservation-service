@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const path = require('path');
 const db = require('./client.js');
 
@@ -13,6 +14,7 @@ const reservationsPath = path.join(__dirname, './csv/reservations.csv');
 //     await client.query('')
 //   }
 // })
+
 console.time('Postgres user seeding.');
 db.client.query(
   `COPY bookings.users(id, name) FROM '${usersPath}' DELIMITER ',' CSV HEADER`,
