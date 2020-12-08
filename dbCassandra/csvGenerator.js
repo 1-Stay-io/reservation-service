@@ -56,7 +56,8 @@ const dataGenReservations = (startingId, reviewAmount, startDate, listingInfo) =
     totalCost = (totalCost * 1.12).toFixed(2);
     guestId = random(1000000) + 1;
 
-    const data = `${id},${listingInfo.id},${guestId},${checkin},${checkout},{adults: ${adults}, children: ${children}, infants: ${infants}},${totalCost}\n`;
+    // const data = `${id}|${listingInfo.id}|${guestId}|${checkin}|${checkout}|{adults: ${adults}, children: ${children}, infants: ${infants}}|${totalCost}\n`;
+    const data = `${id}|${listingInfo.id}|${guestId}|${checkin}|${checkout}|${adults}|${children}|${infants}|${totalCost}\n`;
     bookings += data;
   } while (i > 0);
 
@@ -85,7 +86,8 @@ const dataGenListings = (i, writer, callback) => {
         feeService: random(20) + 5,
         owner: random(1000000) + 1,
       };
-      const data = `${listingInfo.id},${listingInfo.name},${faker.name.findName()},${listingInfo.owner},${listingInfo.maxStay},${listingInfo.maxGuests},{perNight:${listingInfo.feePerNight},cleaning:${listingInfo.feeCleaning},service:${listingInfo.feeService}}\n`;
+      // const data = `${listingInfo.id}|"${listingInfo.name}"|"${faker.name.findName()}"|${listingInfo.owner}|${listingInfo.maxStay}|${listingInfo.maxGuests}|{pernight:${listingInfo.feePerNight},cleaning:${listingInfo.feeCleaning},service:${listingInfo.feeService}}\n`;
+      const data = `${listingInfo.id}|"${listingInfo.name}"|"${faker.name.findName()}"|${listingInfo.owner}|${listingInfo.maxStay}|${listingInfo.maxGuests}|${listingInfo.feePerNight}|${listingInfo.feeCleaning}|${listingInfo.feeService}\n`;
       if (i === 0) {
         writer.write(data);
         reviewAmount = random(21);
