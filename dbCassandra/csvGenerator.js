@@ -4,13 +4,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-use-before-define */
 /* eslint-disable arrow-body-style */
+
+//dsbulk-1.7.0/bin/dsbulk load -url '\/Users\/victor\/Documents\/hrsf131\/sdc-service\/dbCassandra\/csv\/reservations.csv' -k bookings -t reservations -delim '|' -header true
+
 const fs = require('fs');
 const faker = require('faker');
 
 const listingsWriter = fs.createWriteStream('./dbCassandra/csv/listings.csv');
-listingsWriter.write('listings_id,listing_name,owner,owner_id,maxStay,maxGuests,fees\n');
+listingsWriter.write('listings_id|listing_name|owner|owner_id|maxstay|maxguests|pernight|cleaning|service\n');
 const reservationsWriter = fs.createWriteStream('./dbCassandra/csv/reservations.csv');
-reservationsWriter.write('reservation_id,listing_id,user_id,checkInDate,checkOutDate,guests,totalCost\n');
+reservationsWriter.write('reservation_id|listing_id|user_id|checkindate|checkoutdate|adults|children|infants|totalcost\n');
 
 const random = (num, skew = 1) => (
   Math.floor(Math.random() ** skew * num)

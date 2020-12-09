@@ -14,7 +14,7 @@ CREATE SCHEMA bookings;
     feePerNight NUMERIC(3),
     feeCleaning NUMERIC(2),
     feeService NUMERIC(2),
-    owner INT references bookings.users(id) ON DELETE CASCADE
+    owner INT
   );
 
   CREATE TABLE bookings.reservations (
@@ -25,6 +25,6 @@ CREATE SCHEMA bookings;
     children NUMERIC(2),
     infants NUMERIC(2),
     totalCost NUMERIC(8, 2),
-    listing_id INT references bookings.listings(id) ON DELETE CASCADE,
-    user_id INT references bookings.users(id) ON DELETE CASCADE
+    listing_id INT,
+    user_id INT
   );

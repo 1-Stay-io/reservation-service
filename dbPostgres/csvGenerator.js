@@ -8,9 +8,9 @@ const fs = require('fs');
 const faker = require('faker');
 
 const usersWriter = fs.createWriteStream('./dbPostgres/csv/users.csv');
-usersWriter.write('id,name\n');
+usersWriter.write('name\n');
 const listingsWriter = fs.createWriteStream('./dbPostgres/csv/listings.csv');
-listingsWriter.write('id,name,maxStay,maxGuests,feePerNight,feeCleaning,feeService,owner\n');
+listingsWriter.write('name,maxStay,maxGuests,feePerNight,feeCleaning,feeService,owner\n');
 const reservationsWriter = fs.createWriteStream('./dbPostgres/csv/reservations.csv');
 reservationsWriter.write('checkInDate,checkOutDate,adults,children,infants,totalCost,listing_id,user_id\n');
 
@@ -25,14 +25,12 @@ const addDays = (date, days) => {
 };
 
 const dataGenUser = (i, writer, callback) => {
-  let id = 0;
   function write() {
     let ok = true;
     do {
       i -= 1;
-      id += 1;
       const name = faker.name.findName();
-      const data = `${id},${name}\n`;
+      const data = `${name}\n`;
       if (i === 0) {
         writer.write(data, callback);
       } else {
@@ -108,7 +106,7 @@ const dataGenListings = (i, writer, callback) => {
         feeService: random(20) + 5,
         owner: random(1000000) + 1,
       };
-      const data = `${listingInfo.id},${listingInfo.name},${listingInfo.maxStay},${listingInfo.maxGuests},${listingInfo.feePerNight},${listingInfo.feeCleaning},${listingInfo.feeService},${listingInfo.owner}\n`;
+      const data = `${listingInfo.name},${listingInfo.maxStay},${listingInfo.maxGuests},${listingInfo.feePerNight},${listingInfo.feeCleaning},${listingInfo.feeService},${listingInfo.owner}\n`;
       if (i === 0) {
         writer.write(data);
         reviewAmount = random(21);

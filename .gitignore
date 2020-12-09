@@ -30,3 +30,5 @@ globalConfig.json
 
 csv/
 *.csv
+
+dsbulk-1.7.0/

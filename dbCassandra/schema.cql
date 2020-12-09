@@ -1,4 +1,4 @@
-DROP KEYSPACE IF EXISTS bookings;
+-- DROP KEYSPACE IF EXISTS bookings;
 
 CREATE KEYSPACE bookings WITH replication =
 {'class': 'SimpleStrategy', 'replication_factor': 1};
@@ -27,8 +27,8 @@ CREATE TABLE bookings.listings (
 WITH comment = 'Q1. Find information about a listing';
 
 CREATE TABLE bookings.reservations_by_listing (
-  listing_id int,
   reservation_id int,
+  listing_id int,
   user_id int,
   checkInDate date,
   checkOutDate date,
@@ -39,13 +39,15 @@ CREATE TABLE bookings.reservations_by_listing (
   PRIMARY KEY (listing_id, reservation_id) )
 WITH comment = 'Q2. Find all reservations by listing id';
 
--- CREATE TABLE bookings.reservations (
---   reservation_id int,
---   listing_id int,
---   user_id int,
---   checkInDate date,
---   checkOutDate date,
---   guests frozen<guests>,
---   totalCost decimal,
---   PRIMARY KEY (reservation_id) )
--- WITH comment = 'Q3. Find reservation by reservation id';
+CREATE TABLE bookings.reservations (
+  reservation_id int,
+  listing_id int,
+  user_id int,
+  checkInDate date,
+  checkOutDate date,
+  adults int,
+  children int,
+  infants int,
+  totalCost decimal,
+  PRIMARY KEY (reservation_id) )
+WITH comment = 'Q3. Find reservation by reservation id';
