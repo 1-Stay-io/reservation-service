@@ -15,7 +15,8 @@
     "testFrontend": "jest --config ./tests/frontend/jestFrontend.config.js",
     "tests": "jest",
     "csvPostgres": "node ./dbPostgres/csvGenerator.js",
-    "seedPostgres": "node ./dbPostgres/seed.js"
+    "seedPostgres": "node ./dbPostgres/seed.js",
+    "postgres": "nodemon ./server/postgres"
   },
   "dependencies": {
     "axios": "^0.21.0",

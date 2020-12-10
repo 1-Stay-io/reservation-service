@@ -6,8 +6,6 @@ const usersPath = path.join(__dirname, './csv/users.csv');
 const listingsPath = path.join(__dirname, './csv/listings.csv');
 const reservationsPath = path.join(__dirname, './csv/reservations.csv');
 
-db.client.connect();
-
 (async () => {
   try {
     console.time('Postgres seeding');

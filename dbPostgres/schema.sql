@@ -8,7 +8,7 @@ CREATE SCHEMA bookings;
 
   CREATE TABLE bookings.listings (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    name VARCHAR(70),
+    listing_name VARCHAR(70),
     maxStay NUMERIC(3),
     maxGuests NUMERIC(2),
     feePerNight NUMERIC(3),
