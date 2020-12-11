@@ -88,15 +88,13 @@ npm run build
 
 ```json
     {
-      "userId": "Number",
-      "name": "String",
-      "maxGuests": "Number",
+      "listing_name": "String",
       "maxStay": "Number",
-      "fees": {
-        "perNight": "Number",
-        "cleaning": "Number",
-        "service": "Number",
-      },
+      "maxGuests": "Number",
+      "feePerNight": "Number",
+      "feeCleaning": "Number",
+      "feeService": "Number",
+      "owner_id": "Number",
     }
 ```
 
