@@ -20,7 +20,8 @@ function App() {
   const [checkingDatesSet, setCheckingDatesSet] = useState(false);
   const [focusedDate, setFocusedDate] = useState(undefined);
   function getListingData() {
-    const listingID = window.location.pathname.split('/')[1];
+    const listingID = window.location.pathname.split('/')[2];
+    console.log(window.location.pathname.split('/'));
     return axios.get(`/api/listings/${isNaN(listingID) ? 0 : listingID}`)
       .then((response) => {
         setListingData(response.data);
@@ -95,7 +96,7 @@ function App() {
       <div className={styles.mainGrid}>
         <span className={styles.mainPrice}>
           <span id={styles.mainPriceAmount}>
-            {`$${listingData === undefined ? '' : listingData[0].fees.pernight}`}
+            {`$${listingData === undefined ? '' : listingData.fees.pernight}`}
           </span>
           <span id={styles.mainPricePerNight}>/ night</span>
         </span>

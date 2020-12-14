@@ -16,7 +16,10 @@
     "tests": "jest",
     "csvPostgres": "node ./dbPostgres/csvGenerator.js",
     "seedPostgres": "node ./dbPostgres/seed.js",
-    "postgres": "nodemon ./server/postgres"
+    "postgres": "nodemon ./server/postgres",
+    "k6": "k6 run ./tests/script.js",
+    "react-dev": "webpack --config webpack.config.js",
+    "docker": "node ./server/postgres"
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -28,6 +31,7 @@
     "jest-css-modules-transform": "^4.0.2",
     "mongoose": "^5.10.14",
     "morgan": "^1.10.0",
+    "newrelic": "^7.0.2",
     "path": "^0.12.7",
     "pg": "^8.5.1",
     "prop-types": "^15.7.2",

@@ -1,0 +1,14 @@
+.env
+node_modules
+
+.gitignore
+package-lock.json
+
+db
+dbCassandra
+dbPostgres
+dsbulk-1.7.0
+
+logs
+newrelic.json
+newrelic_agent.log
