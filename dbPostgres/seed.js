@@ -16,7 +16,7 @@ const reservationsPath = path.join(__dirname, './csv/reservations.csv');
     console.timeEnd('Postgres user seeding.');
 
     console.time('Postgres listings seeding.');
-    await db.client.query(`COPY bookings.listings(name, maxStay, maxGuests, feePerNight, feeCleaning, feeService, owner) FROM '${listingsPath}' DELIMITER ',' CSV HEADER`);
+    await db.client.query(`COPY bookings.listings(listing_name, maxStay, maxGuests, feePerNight, feeCleaning, feeService, owner) FROM '${listingsPath}' DELIMITER ',' CSV HEADER`);
     console.timeEnd('Postgres listings seeding.');
 
     console.time('Postgres reservations seeding.');

@@ -32,3 +32,6 @@ csv/
 *.csv
 
 dsbulk-1.7.0/
+newrelic.js
+
+client.js
