@@ -2,29 +2,29 @@ DROP SCHEMA IF EXISTS bookings CASCADE;
 
 CREATE SCHEMA bookings;
   CREATE TABLE bookings.users (
-    id SERIAL PRIMARY KEY NOT NULL,
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR(70)
   );
 
   CREATE TABLE bookings.listings (
-    id SERIAL PRIMARY KEY NOT NULL,
-    name VARCHAR(70),
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    listing_name VARCHAR(70),
     maxStay NUMERIC(3),
     maxGuests NUMERIC(2),
     feePerNight NUMERIC(3),
     feeCleaning NUMERIC(2),
     feeService NUMERIC(2),
-    owner INTEGER references bookings.users(id)
+    owner INT
   );
 
   CREATE TABLE bookings.reservations (
-    id SERIAL PRIMARY KEY NOT NULL,
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     checkInDate date,
     checkOutDate date,
     adults NUMERIC(2),
     children NUMERIC(2),
-    infant NUMERIC(2),
+    infants NUMERIC(2),
     totalCost NUMERIC(8, 2),
-    listing_id INTEGER references bookings.listings(id),
-    user_id INTEGER references bookings.users(id)
+    listing_id INT,
+    user_id INT
   );
